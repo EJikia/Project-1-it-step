@@ -1,0 +1,330 @@
+/*==================== Global =========================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: robo
+}
+
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.page-container {
+    min-height: 100vh;
+}
+
+/*==================== Header =========================*/
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#logo {
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+#logo span {
+    color: rgb(235, 51, 88);
+    font-size: 1.5rem;
+}
+
+#header_btn {
+    display: flex;
+    align-items: center;
+}
+
+.common-btn {
+    padding: .3em;
+    background-color: rgb(235, 51, 88);
+    
+    color: whitesmoke;
+    margin: auto .2em;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.common-btn:hover {
+    background-color: #4644d3d5;
+    transition: all 0.3s ease;
+}
+#logout-btn {
+    display: none;
+}
+#username{
+    display: none;
+    color: rgb(235, 51, 88);
+}
+/*================= Navigation Bar ===================*/
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(235, 51, 88);
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-item {
+    margin: auto .3em;
+}
+
+.navbar a {
+    color: whitesmoke;
+    font-weight: 800;
+}
+
+.navbar a:hover {
+    color: blue;
+
+}
+
+/*================= Main ===================*/
+main {
+    display: grid;
+}
+
+.regions h3 {
+    color: rgb(235, 51, 88);
+    margin: 1em;
+}
+
+/* #main_container {
+    display: none;
+} */
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    margin: 1em;
+    border: 2px solid rgb(235, 51, 88);
+    padding: .5em;
+    text-align: justify;
+    width: 250px;
+
+
+}
+
+.card img {
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    margin-top: .2em;
+    margin-bottom: .2em;
+}
+
+/*================= Form ===================*/
+
+form {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    background-color: white;
+    border: 3px solid rgb(235, 51, 88);
+    border-radius: 10px;
+
+}
+
+.form-title {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-right: 0;
+    width: 100%;
+    border-style: none;
+    text-align: center;
+
+}
+
+.form-title h3 {
+    color: black;
+    font-weight: 800;
+    padding: .5em;
+}
+
+input, label, .form-btn {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*================= Footer ===================*/
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(235, 51, 88);
+    bottom: 0;
+}
+
+footer div {
+    flex-basis: content;
+}
+
+footer a, .copyright {
+    font-size: .7rem;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+img {
+    height: 30px;
+    width: 30px
+}
+
+
+
+
+/*
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #131313;
+    height: 80px;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+}
+
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar-logo {
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb188 100%);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.fa-gem {
+    margin-right: .5rem;
+}
+
+.navbar_menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar_item {
+    height: 80px;
+}
+
+.navbar_link {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar_btn {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #f77062;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #4837ff;
+    transition: all 0.3s ease;
+}
+
+.navbar_link:hover {
+    background-color: #4837ff;
+    transition: all 0.3s ease;
+}
+@media screen and (max-width: 960px) and (min-width: 767px){
+    .navbar_container{
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+    .navbar_menu {
+        display: grid;
+        grid-template-columns: auto;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .navbar_container{
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: .7rem;
+        width: 100%;
+        max-width: 1000px;
+        padding: 0;
+    }
+    .navbar_menu {
+        display: grid;
+        grid-template-columns: auto;
+    }
+    
+} */

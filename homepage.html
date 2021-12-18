@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+    <div class="page-container">
+        <header>
+            <div class="logo-wrapper">
+                <a href="./homepage.html" id="logo">Travel<span>M</span>ore</a>
+            </div>
+            <div id="header_btn">
+                <button class="header-btn common-btn" onclick="openLogInForm()">Log In</button>
+                <button class="header-btn common-btn" onclick="openRegistrationForm()">Join Us</button>
+                <a id="username" href="#"></a>
+                <button id="logout-btn" class="common-btn" onclick="">Log Out</button>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="" class="navbar-link">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">Hotels</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="main_container">
+                <section class="regions">
+                    <h3>The Most Popular Regions In Georgia</h3>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                    </div>
+
+                </section>
+                <section class="regions">
+                    <h3>The Most Popular Regions In Georgia</h3>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                        <div class="card">
+                            <a href="#">Orbi city sea view</a>
+                            <a href="#"><img src="./img/hotels/achara/Orbi city sea view/3.jpg" alt=""></a>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias laborum dicta amet
+                                ducimus
+                                similique quaerat dolorem ipsum laudantium expedita placeat, deleniti tempora distinctio
+                                asperiores cumque aliquam! Cupiditate amet porro expedita!</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="hotels">
+
+                </section>
+                <aside class="news">
+
+                </aside>
+            </div>
+            <form id="register_form">
+                <div class="form-title">
+                    <h3>Sign Up</h3>
+                </div>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname">
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <label for="re_password">Repeat Password</label>
+                <input type="password" id="re_password" name="re_password">
+                <button class="form-btn" type="submit">Submit</button>
+            </form>
+            <form id="login_form">
+                <div class="form-title">
+                    <h3>Log In</h3>
+                </div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <button class="form-btn" type="button" onclick="login()">Submit</button>
+            </form>
+
+
+        </main>
+        <footer>
+            <div>
+                <ul>
+                    <h6>Company</h6>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">COVID-19 Advice</a></li>
+                </ul>
+
+            </div>
+            <div>
+                <ul>
+                    <h6>Contact</h6>
+                    <li><a href="#">Us</a></li>
+                    <li><a href="#">Hotel Owners</a></li>
+                    <li><a href="#">Help/FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <div>
+                    <h6>Follow Us:</h6>
+                    <a href="#"> <img src="./img/social-media-icons/fb-icon.png" alt="FB">
+                    </a>
+                    <a href="#"> <img src="./img/social-media-icons/snapchat-icon.png" alt="Snapchat">
+                    </a>
+                    <a href="#"> <img src="./img/social-media-icons/instagram-icon.png" alt="Snapchat">
+                    </a>
+                    <a href="#"> <img src="./img/social-media-icons/twitter-icon.png" alt="Snapchat">
+                    </a>
+                </div>
+                <div class="copyright">All Right Reserved <br>TravelMore, Inc. © 2021</div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
