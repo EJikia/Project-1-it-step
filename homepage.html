@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TravelMore</title>
     <!-- CSS -->
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -20,8 +20,8 @@
             <div id="header_btn">
                 <button class="header-btn common-btn" onclick="openLogInForm()">Log In</button>
                 <button class="header-btn common-btn" onclick="openRegistrationForm()">Join Us</button>
-                <a id="username" href="#"></a>
-                <button id="logout-btn" class="common-btn" onclick="">Log Out</button>
+                <button id="username" onclick="loadUserPage()" ></button>
+                <button id="logout-btn" class="common-btn" onclick="logout()">Log Out</button>
             </div>
         </header>
 
@@ -37,7 +37,7 @@
         </nav>
 
         <main>
-            <div id="main_container">
+            <div id="homepage_container">
                 <section class="regions">
                     <h3>The Most Popular Regions In Georgia</h3>
                     <div class="card-wrapper">
@@ -120,32 +120,83 @@
 
                 </aside>
             </div>
-            <form id="register_form">
-                <div class="form-title">
-                    <h3>Sign Up</h3>
+            <div id="regLoginForm_container">
+                <form id="register_form">
+                    <div class="form-title">
+                        <h3>Sign Up</h3>
+                    </div>
+                    <label class="home-form-item" for="fname">First name:</label>
+                    <input class="home-form-item" type="text" id="fname" name="fname">
+                    <label class="home-form-item" for="lname">Last name:</label>
+                    <input class="home-form-item" type="text" id="lname" name="lname">
+                    <label class="home-form-item" for="email">Email:</label>
+                    <input class="home-form-item" type="email" id="email" name="email">
+                    <label class="home-form-item" for="password">Password</label>
+                    <input class="home-form-item" type="password" id="password" name="password">
+                    <label class="home-form-item" for="re_password">Repeat Password</label>
+                    <input class="home-form-item" type="password" id="re_password" name="re_password">
+                    <button class="home-form-item" class="form-btn" type="submit">Submit</button>
+                </form>
+                <form id="login_form">
+                    <div class="form-title">
+                        <h3>Log In</h3>
+                    </div>
+                    <label class="home-form-item" for="email">Email:</label>
+                    <input class="home-form-item" type="email" id="email" name="email">
+                    <label class="home-form-item" for="password">Password</label>
+                    <input class="home-form-item" type="password" id="password" name="password">
+                    <button class="home-form-item" class="form-btn" type="button" onclick="login()">Submit</button>
+                </form>
+            </div>
+            <div id="userInfo_container">
+                <h3>My Account</h3>
+                <form id="user_info">
+                    <div class="input-wrapper">
+                        <label class="userInfo-form-item" for="firstname">First Name</label>
+                        <input class="userInfo-form-item" id="userInfo_firstname" type="text" name="firstname" disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label class="userInfo-form-item" for="lastname">Last Name</label>
+                        <input class="userInfo-form-item" id="userInfo_lastname" type="text" name="lastname" disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label class="userInfo-form-item" for="email">Email</label>
+                        <input class="userInfo-form-item" id="userInfo_email" type="email" name="email" disabled>
+
+                    </div>
+                    <div class="input-wrapper">
+                        <label class="userInfo-form-item" for="password">Password</label>
+                        <input class="userInfo-form-item" id="userInfo_password" type="password" name="password" disabled>
+                        <input type="checkbox" onclick="showPassword()">Show Password
+                    </div>
+                    <div class="userInfo-update-btn">
+                        <button id="changeUserInfo"class="userInfo-form-item" type="button" onclick="changeInfo()">Change information</button>
+                        <button id="saveUpdatedUserInfo" class="userInfo-form-item" type="button" onclick="updateInfo()" disabled >Save</button>
+                    </div>
+                </form>
+                <div id="booking_history">
+                    <h3>My Booking History</h3>
+                    <table style="width:100%">
+                        <tr>
+                            <th>Hotel</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </table>
                 </div>
-                <label for="fname">First name:</label>
-                <input type="text" id="fname" name="fname">
-                <label for="lname">Last name:</label>
-                <input type="text" id="lname" name="lname">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
-                <label for="re_password">Repeat Password</label>
-                <input type="password" id="re_password" name="re_password">
-                <button class="form-btn" type="submit">Submit</button>
-            </form>
-            <form id="login_form">
-                <div class="form-title">
-                    <h3>Log In</h3>
-                </div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
-                <button class="form-btn" type="button" onclick="login()">Submit</button>
-            </form>
+            </div>
+            <div id="hotelInfo_container">
+            </div>
+            <div id="bookingPage_container">
+            </div>
 
 
         </main>

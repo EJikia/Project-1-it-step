@@ -46,7 +46,7 @@ header {
 .common-btn {
     padding: .3em;
     background-color: rgb(235, 51, 88);
-    
+
     color: whitesmoke;
     margin: auto .2em;
     border-style: none;
@@ -57,13 +57,16 @@ header {
     background-color: #4644d3d5;
     transition: all 0.3s ease;
 }
+
 #logout-btn {
     display: none;
 }
-#username{
+
+#username {
     display: none;
     color: rgb(235, 51, 88);
 }
+
 /*================= Navigation Bar ===================*/
 nav {
     display: flex;
@@ -100,9 +103,6 @@ main {
     margin: 1em;
 }
 
-/* #main_container {
-    display: none;
-} */
 .card-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -129,7 +129,7 @@ main {
 
 /*================= Form ===================*/
 
-form {
+#register_form, #login_form {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -162,9 +162,36 @@ form {
     padding: .5em;
 }
 
-input, label, .form-btn {
+.home-form-item {
     width: 80%;
     margin: 0 auto;
+}
+
+#userInfo_container {
+    display: none;
+}
+#user_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.input-wrapper {
+    display: flex;
+    width: 50%;
+
+
+}
+
+.input-wrapper label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.userInfo-form-item {
+    margin: 2em 1em;
 }
 
 /*================= Footer ===================*/
