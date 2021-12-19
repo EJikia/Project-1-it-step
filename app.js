@@ -89,7 +89,6 @@ function login() {
     }
     if (user.password != password.value) {
         alert("Incorrect password");
-        console.log(user.password,password.value);
         password.style.border = "solid #FF0000";
         return;
     }
@@ -123,6 +122,7 @@ function logout() {
 };
 
 /*================= user log out ===================*/
+/*================= user page ===================*/
 
 function showPassword() {
     let password = document.getElementById("userInfo_password");
@@ -165,13 +165,72 @@ function updateInfo() {
     document.getElementById("userInfo_password").disabled = true;
     document.getElementById("saveUpdatedUserInfo").disabled = true;
 };
-
-/*================= user log out ===================*/
+/*================= user page ===================*/
 
 /*================= Hotels ===================*/
-// class Hotel {
-//     constructor(name, address, numberOfStars, info, numberOfRooms, freeRooms)
-// }
+class Hotel {
+    constructor(name, address, numberOfStars, info, numberOfRooms, freeRooms, parking, swimmingPool, spa, bannerImgSrc) {
+        this.name = name;
+        this.address = address;
+        this.numberOfStars = numberOfStars;
+        this.info = info;
+        this.numberOfRooms = numberOfRooms;
+        this.freeRooms = freeRooms;
+        this.parking = parking;
+        this.swimmingPool = swimmingPool;
+        this.spa = spa;
+        this.bannerImgSrc = bannerImgSrc;
+    }
+}
+
+let orbiCitySeaView = new Hotel("Orbi city sea view", "New Boulevard, Batumi", 4,
+    "Studio Apartment with Sea View", 100, 30, "Yes", "Yes", "No", "./img/hotels/achara/Orbi city sea view/1.jpg");
+let paragraphResortAndSpaShekvetili = new Hotel("Paragraph Resort & Spa Shekvetili, Autograph Collection", "New Boulevard, Batumi", 5,
+    "Studio Apartment with Sea View", 200, 10, "Yes", "Yes", "Yes", "./img/hotels/guria/Paragraph Resort & Spa Shekvetili, Autograph Collection/1.jpg");
+let prometheusEpicHotelAndSpa = new Hotel("Prometheus Epic Hotel & Spa", "New Boulevard, Batumi", 5,
+    "Studio Apartment with Sea View", 150, 15, "Yes", "Yes", "Yes", "./img/hotels/imereti/Prometheus Epic Hotel & Spa/1.jpg");
+let lopotaLakeResortAndSpa = new Hotel("Lopota Lake Resort & Spa", "New Boulevard, Batumi", 3,
+    "Studio Apartment with Sea View", 165, 25, "Yes", "Yes", "No", "./img/hotels/kakheti/Lopota Lake Resort & Spa/1.jpg");
+let roomsHotelKazbegi = new Hotel("Rooms Hotel Kazbegi", "New Boulevard, Batumi", 3,
+    "Studio Apartment with Sea View", 60, 14, "Yes", "Yes", "Yes", "./img/hotels/mtskheta-mtianeti/Rooms Hotel Kazbegi/1.jpg");
+let mtserlebiResort = new Hotel("Mtserlebi Resort", "New Boulevard, Batumi", 4,
+    "Studio Apartment with Sea View", 90, 17, "Yes", "Yes", "No", "./img/hotels/shida-kartli/Mtserlebi Resort/1.jpg");
+
+let hotels = [orbiCitySeaView, paragraphResortAndSpaShekvetili,
+    prometheusEpicHotelAndSpa, lopotaLakeResortAndSpa, roomsHotelKazbegi, mtserlebiResort];
+let hotelsArrayString = localStorage.getItem("hotels");
+let hotelsParsedArray = JSON.parse(hotelsArrayString);
+if (!hotelsParsedArray) {
+    hotelsParsedArray = [];
+    hotelsParsedArray.push(hotels);
+    let hotelsNewArrayString = JSON.stringify(hotelsParsedArray);
+    localStorage.setItem("hotels", hotelsNewArrayString);
+}
+
+hotels.forEach(hotel => {
+    let hotel_card_wrapper = document.getElementById("hotel_card_wrapper");
+    
+    let card = document.createElement("div");
+    card.className = "card";
+    let cardTitle = document.createElement("a");
+    let cardBannerHref = document.createElement("a");
+    let bannerImg = document.createElement("img");
+    let cardParagraph = document.createElement("p");
+
+    
+    cardTitle.textContent = hotel.name;
+    bannerImg.src = hotel.bannerImgSrc;
+    cardParagraph.textContent = hotel.info;
+
+    hotel_card_wrapper.appendChild(card);
+    card.appendChild(cardTitle);
+    card.appendChild(cardBannerHref);
+    cardBannerHref.appendChild(bannerImg);
+    card.appendChild(cardParagraph);
+    
+
+
+});
 
 
 /*================= Hotels ===================*/
