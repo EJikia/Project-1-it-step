@@ -20,7 +20,7 @@
             <div id="header_btn">
                 <button class="header-btn common-btn" onclick="openLogInForm()">Log In</button>
                 <button class="header-btn common-btn" onclick="openRegistrationForm()">Join Us</button>
-                <button id="username" onclick="loadUserPage()" ></button>
+                <button id="username" onclick="loadUserPage()"></button>
                 <button id="logout-btn" class="common-btn" onclick="logout()">Log Out</button>
             </div>
         </header>
@@ -38,25 +38,56 @@
 
         <main>
             <div id="homepage_container">
+
+                <div id="news_slideshow" data-component="slideshow">
+                    <h3>News</h3>
+                    <div role="list">
+                        <div class="slide">
+                            <img src="./img/news/1//1.jpg" alt="">
+                            ვარძიისა და ნოქალაქევის მუზეუმ-ნაკრძალების სრულფასოვნად ამოქმედების შემდეგ, დამთვალიერებლებს
+                            კულტურული მემკვიდრეობის დაცვის ეროვნული სააგენტო ახალ მომსახურებას შესთავაზებს.
+                            ქვეყანაში ეპიდემიური ვითარების ნორმალიზებისთანავე უწყების სტრუქტურულ დაქვემდებარებაში მყოფი
+                            ადმინისტრაციები სამუზეუმო სივრცის ვიზიტორებს ელექტრო ტრანსპორტით მოემსახურებიან.
+                        </div>
+                        <div class="slide">
+                            <img src="./img/news/2/1.jpg" alt="">
+                            ქვეყანაში შექმნილი ეპიდემიური ვითარების წარმოქმნის გამო, კულტურული მემკვიდრეობის დაცვის
+                            ეროვნული სააგენტო მის დაქვემდებარებაში მყოფ ყველა მუზეუმსა და მუზეუმ-ნაკრძალში ვიზიტორთა
+                            დაშვებას დროებით ზღუდავს.
+                            დადგენილი რეგულაციების შესრულებისა და ეპიდემიოლოგების რეკომენდაციების გათვალისწინების
+                            მიზნით, ეროვნული სააგენტო მოქალაქეებს და ტურისტულ კომპანიებს დაგეგმილი ვიზიტებისა და ტურების
+                            გადავადებისკენ მოუწოდებს.
+                        </div>
+                        <div class="slide">
+                            <img src="./img/news/3/1.jpg" alt="">
+                            2020 წლის 4 დეკემბერს საქართველოს კულტურული მარშრუტების სტრატეგიული განვითარებისა და
+                            სერტიფიცირების უწყებათაშორისმა საბჭომ განიხილა და განათლების, მეცნიერების, კულტურისა და
+                            სპორტის სამინისტროს სერტიფიკატები მიანიჭა 5 ახალ მარშრუტს: „საქართველოს კერამიკის გზა“, „
+                            ჩაით დახატული საქართველო“, „მივალ გურიაში მარა“, „ილია ჭავჭავაძის მემორიალური ადგილები“ და
+                            „ცამეტ სირიელ მამათა ნაკვალევზე“.
+                        </div>
+                        <div class="slide">
+                            <img src="./img/news/4/1.jpg" alt="">
+                            კახეთში ახალი ტურისტული კომპლექსი "სვიანა რეზორტი" გაიხსნა, რომელიც მდებარეობს თელავის
+                            მუნიციპალიტეტის სოფელ ლეჩურში თუშეთისკენ მიმავალ გზაზე.
+                        </div>
+                    </div>
+                </div>
                 <section class="hotels">
                     <h3>The Most Popular Hotels In Georgia</h3>
                     <div id="hotel_card_wrapper" class="card-wrapper">
-                        
+
                     </div>
 
                 </section>
                 <section class="regions">
                     <h3>The Most Popular Regions In Georgia</h3>
                     <div id="region_card_wrapper" class="card-wrapper">
-                       
+
                     </div>
                 </section>
-                <section class="hotels">
 
-                </section>
-                <aside class="news">
 
-                </aside>
             </div>
             <div id="regLoginForm_container">
                 <form id="register_form">
@@ -104,12 +135,15 @@
                     </div>
                     <div class="input-wrapper">
                         <label class="userInfo-form-item" for="password">Password</label>
-                        <input class="userInfo-form-item" id="userInfo_password" type="password" name="password" disabled>
+                        <input class="userInfo-form-item" id="userInfo_password" type="password" name="password"
+                            disabled>
                         <input type="checkbox" onclick="showPassword()">Show Password
                     </div>
                     <div class="userInfo-update-btn">
-                        <button id="changeUserInfo"class="userInfo-form-item" type="button" onclick="changeInfo()">Change information</button>
-                        <button id="saveUpdatedUserInfo" class="userInfo-form-item" type="button" onclick="updateInfo()" disabled >Save</button>
+                        <button id="changeUserInfo" class="userInfo-form-item" type="button"
+                            onclick="changeInfo()">Change information</button>
+                        <button id="saveUpdatedUserInfo" class="userInfo-form-item" type="button" onclick="updateInfo()"
+                            disabled>Save</button>
                     </div>
                 </form>
                 <div id="booking_history">
@@ -117,11 +151,13 @@
                     <table style="width:100%">
                         <tr>
                             <th>Hotel</th>
+                            <th>Room Type</th>
                             <th>Check In</th>
                             <th>Check Out</th>
                             <th>Price</th>
                         </tr>
                         <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -132,6 +168,134 @@
                 </div>
             </div>
             <div id="hotelInfo_container">
+
+                <div class="hotel-page-top">
+                    <div class="slideshow-container">
+
+                        <div class="slides fade">
+                            <div class="numbertext">1 / 6</div>
+                            <img id="img_1" src="./img/hotels-banner/ambassadori.jpg" style="width:100%">
+                        </div>
+
+                        <div class="slides fade">
+                            <div class="numbertext">2 / 6</div>
+                            <img id="img_2" src="./img/hotels/achara/Orbi city sea view/1.jpg" style="width:100%">
+                        </div>
+
+                        <div class="slides fade">
+                            <div class="numbertext">3 / 6</div>
+                            <img id="img_3" src="" style="width:100%">
+                        </div>
+
+                        <div class="slides fade">
+                            <div class="numbertext">4 / 6</div>
+                            <img id="img_4" src="./img/hotels/achara/Orbi city sea view/3.jpg" style="width:100%">
+                        </div>
+
+                        <div class="slides fade">
+                            <div class="numbertext">5 / 6</div>
+                            <img id="img_5" src="./img/hotels/achara/Orbi city sea view/4.jpg" style="width:100%">
+                        </div>
+
+                        <div class="slides fade">
+                            <div class="numbertext">6 / 6</div>
+                            <img id="img_6" src="./img/hotels/achara/Orbi city sea view/5.jpg" style="width:100%">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    </div>
+                    <br>
+
+                    <div class="dot-wrapper">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span>
+                        <span class="dot" onclick="currentSlide(6)"></span>
+                    </div>
+                    <div class="titleWithStars">
+                        <h2 id="hotel_page_title"></h2>
+                        <span class="rating">
+                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                        </span>
+                    </div>
+
+                </div>
+                <div id="hotel-info-table">
+                    <table>
+                        <tr>
+                            <th>Address:</th>
+                            <td id="address_data"></td>
+                        </tr>
+                        <tr>
+                            <th>Number of rooms:</th>
+                            <td id="numOfrooms_data"></td>
+                        </tr>
+                        <tr>
+                            <th>Max number of Guests:</th>
+                            <td id="maxGuests_data"></td>
+                        </tr>
+                        <tr>
+                            <th>Facility items:</th>
+                            <td id="facilityItem_data"></td>
+                        </tr>
+                        <tr>
+                            <th>Child policy:</th>
+                            <td id="childPolicy_data"></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="room-options">
+                    <table>
+                        <tr>
+                            <th>Room Type</th>
+                            <th>Price for 1 night (GEL)</th>
+                            <th>Select rooms</th>
+
+                        </tr>
+                        <tr>
+                            <td id="room_type1"></td>
+                            <td class="price-1night"></td>
+                            <td>
+                                <select class="select_room" name="room">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td id="room_type2"></td>
+                            <td class="price-1night"></td>
+                            <td>
+                                <select class="select_room" name="room">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </td>
+
+                        </tr>
+
+                    </table>
+                    <label for="checkIn">Check In:</label>
+                    <input type="date" id="checkIn" name="checkIn"></td>
+                    <label for="checkOut">Check Out:</label>
+                    <input type="date" id="checkOut" name="checkOut"></td>
+                    <button type="button" onclick="reservation()" id="reserve_btn">Reserve</button>
+                </div>
+
             </div>
             <div id="bookingPage_container">
             </div>
