@@ -45,7 +45,7 @@
                     </div>
                 </section>
                 <section class="hotels">
-                    <div id="searchPage_container" style="display: block;">
+                    <div id="searchBar_container">
                         <div id="searchBar_input_wrapper">
                             <input type="search" id="searchBy_name" placeholder="search by name">
                             <input type="search" id="searchBy_city" placeholder="search by city">
@@ -64,18 +64,25 @@
                             </select>
                             <label for="selectBy_facilityItems">search by facility items</label>
                             <select id="selectBy_facilityItems">
-                                <option value="0">-</option>
-                                <option value="1">spa</option>
-                                <option value="2">parking</option>
-                                <option value="3">swimming pool</option>
-                                <option value="4">fitness</option>
-                                <option value="5">internet</option>
+                                <option value="">-</option>
+                                <option value="spa">spa</option>
+                                <option value="parking">parking</option>
+                                <option value="swimmingPool">swimming pool</option>
+                                <option value="fitness">fitness</option>
+                                <option value="internet">internet</option>
                             </select>
+                            <button class="common-btn" type="button" onclick="searchHotel()">Search</button>
                         </div>
-                        <button class="common-btn" type="button" onclick="searchHotel()">Search</button>
+                        
                     </div>
                     <h2 id="dynamicTitle">The Most Popular Hotels In Georgia</h2>
-                    <div id="hotel_card_wrapper" class="card-wrapper"></div>
+                    <div id = "hotel_cards">
+                        <div id="hotel_card_wrapper" class="card-wrapper">
+                        
+                        </div>
+                    </div>
+                    
+                    
 
                 </section>
 

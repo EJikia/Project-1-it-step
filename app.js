@@ -2,7 +2,6 @@ var loggedInUser = {};
 /*Login & Registration Pages*/
 function openLogInForm() {
     disappearForm("login_form", "register_form");
-
 }
 
 function openRegistrationForm() {
@@ -151,6 +150,7 @@ function loadUserPage() {
     document.getElementById("userInfo_lastname").value = loggedInUser.lname;
     document.getElementById("userInfo_email").value = loggedInUser.email;
     document.getElementById("userInfo_password").value = loggedInUser.password;
+    document.getElementById("footer").style.position = "static";
 
     let bookingHistory = localStorage.getItem("reservations");
     let bookingParsedArray = JSON.parse(bookingHistory);
@@ -273,7 +273,7 @@ let lopotaLakeResortAndSpa = new Hotel(4, [40, 45], ["single room", "double room
         "./img/hotels/kakheti/Lopota Lake Resort & Spa/3.jpg", "./img/hotels/kakheti/Lopota Lake Resort & Spa/4.jpg",
         "./img/hotels/kakheti/Lopota Lake Resort & Spa/5.jpg"]);
 let roomsHotelKazbegi = new Hotel(5, [50, 55], ["single room", "double room"], "./img/hotels-banner/rooms.jpg", "Rooms Hotel Kazbegi", "V. Gorgasali Street 1, Stepantsminda , 4700 Stepantsminda, Georgia",
-    "Children of any age are welcome.Children aged 6 years and above are considered adults at this property. Accommodation for children under 6 - free",
+    3, 60, 120, "Children of any age are welcome.Children aged 6 years and above are considered adults at this property. Accommodation for children under 6 - free",
     "No", "Yes", "No", "Yes", "No", "Stepantsminda",
     ["./img/hotels/mtskheta-mtianeti/Rooms Hotel Kazbegi/1.jpg", "./img/hotels/mtskheta-mtianeti/Rooms Hotel Kazbegi/2.jpg",
         "./img/hotels/mtskheta-mtianeti/Rooms Hotel Kazbegi/3.jpg", "./img/hotels/mtskheta-mtianeti/Rooms Hotel Kazbegi/4.jpg",
@@ -593,15 +593,15 @@ function openSearchPage() {
     document.getElementsByClassName("card")[8].style.display = "block"
     document.getElementsByClassName("card")[12].style.display = "block"
     document.getElementsByClassName("card")[13].style.display = "block"
-    let allHotels = document.getElementById("searchPage_container");
+    let allHotels = document.getElementById("searchBar_container");
     allHotels.style.display = "flex";
 
 }
 function searchHotel() {
-    // let cardsTohide = document.getElementsByClassName("card");
-    // for (var i = 0; i < cardsTohide.length; i++) {
-    //     cardsTohide[i].style.display = "none";
-    // }
+    let cardsTohide = document.getElementsByClassName("card");
+    for (var i = 0; i < cardsTohide.length; i++) {
+        cardsTohide[i].style.display = "none";
+    }
     let searchedHotels = [...hotels];
     console.log(searchedHotels)
     let name = document.getElementById("searchBy_name").value;
@@ -609,65 +609,83 @@ function searchHotel() {
     let city = document.getElementById("searchBy_city").value;
     console.log(city)
     let address = document.getElementById("searchBy_address").value;
-    let roomsMinNum = document.getElementById("searchBy_roomsMinNum").value;
+    let roomsMinNum = parseInt(document.getElementById("searchBy_roomsMinNum").value);
+    console.log(roomsMinNum)
     let selected_stars = document.getElementById("selectBy_stars");
-    console.log(selected_stars)
-    let stars = selected_stars.options[selected_stars.selectedIndex].value;
+    let stars = parseInt(selected_stars.options[selected_stars.selectedIndex].value);
     let selected_facilityItem = document.getElementById("selectBy_facilityItems");
     let facilityItem = selected_facilityItem.options[selected_facilityItem.selectedIndex].value;
 
-    
+    console.log(address)
+
     if (name !== "") {
-        searchedHotels = searchedHotels.filter(i => i.name.includes(name));
-    }
-    console.log(searchedHotels);
-    
-    if (city !== "") {
-        searchedHotels = searchedHotels.filter(i => i.city.includes(city));
-    }
-    console.log(searchedHotels+"city");
-    if (address !== "") {
-        searchedHotels = searchedHotels.filter(i => i.address.includes(address));
-    }
-    if (roomsMinNum !== null) {
-        searchedHotels = searchedHotels.filter(i => i.numberOfRooms >= roomsMinNum);
-    }
-    if (stars !== 0) {
-        searchedHotels = searchedHotels.filter(i => i.numberOfStars == stars);
-    }
-    if (facilityItem !== "-") {
-        searchedHotels = searchedHotels.filter(i => i.facilityItem == "Yes");
+        console.log("shemovida name");
+        searchedHotels = searchedHotels.filter(i => i.name.toLowerCase().includes(name.toLowerCase()));
+        console.log(searchedHotels);
     }
 
-    if (name === "" && city === "" && address === "" && roomsMinNum === null && stars === "-" && facilityItem === "-") {
+
+    if (city !== "") {
+        console.log("shemovida city");
+        searchedHotels = searchedHotels.filter(i => i.city.toLowerCase().includes(city.toLowerCase()));
+        console.log(searchedHotels);
+    }
+    // console.log(searchedHotels);
+    if (address !== "") {
+        console.log("shemovida address")
+        searchedHotels = searchedHotels.filter(i => i.address.toLowerCase().includes(address.toLowerCase()));
+        console.log(searchedHotels);
+    }
+
+
+    if (roomsMinNum != NaN && roomsMinNum > 0) {
+        console.log("shemovida rooms")
+        searchedHotels = searchedHotels.filter(i => i.numberOfRooms >= roomsMinNum);
+        console.log(searchedHotels);
+    }
+    if (stars > 0) {
+        console.log("shemovida stars")
+        searchedHotels = searchedHotels.filter(i => i.numberOfStars == stars);
+        console.log(searchedHotels);
+    }
+    if (facilityItem != "") {
+        console.log("shemovida facility")
+        searchedHotels = searchedHotels.filter(i => i[facilityItem].toLowerCase() == "Yes".toLowerCase());
+        console.log(searchedHotels);
+    }
+
+    if (name === "" && city === "" && address === "" && (roomsMinNum == NaN || roomsMinNum <= 0) && stars === 0 && facilityItem === "") {
         searchedHotels = [...hotels];
     }
-    console.log(searchedHotels)
+    let allHotelCard = document.getElementById("hotel_card_wrapper");
+    allHotelCard.remove();
+    let hotelCards = document.getElementById("hotel_cards");
+    let cardWrapper = document.createElement("div");
+    cardWrapper.id = "hotel_card_wrapper";
+    cardWrapper.className="card-wrapper";
+    hotelCards.appendChild(cardWrapper);
     searchedHotels.forEach(hotel => {
         let hotel_card_wrapper = document.getElementById("hotel_card_wrapper");
 
-        let filteredCard = document.createElement("div");
-        filteredCard.className = "filteredCard";
+        let card = document.createElement("div");
+        card.className = "card";
         let cardTitle = document.createElement("h4");
-
         let cardBannerHref = document.createElement("a");
         let bannerImg = document.createElement("img");
-        bannerImg.onclick = function () { openHotelPage(searchedHotels.id) };
+        bannerImg.onclick = function () { openHotelPage(hotel.id) };
         let cardList = document.createElement("ul");
         let addressListItem = document.createElement("li");
 
 
-        cardTitle.textContent = searchedHotels.name;
-        bannerImg.src = searchedHotels.bannerImg;
-        starsListItem.textContent = searchedHotels.numberOfStars;
-        addressListItem.textContent = [`location: ${searchedHotels.address}`];
+        cardTitle.textContent = hotel.name;
+        bannerImg.src = hotel.bannerImg;
+        addressListItem.textContent = [`location: ${hotel.address}`];
 
-        hotel_card_wrapper.appendChild(filteredCard);
-        filteredCard.appendChild(cardTitle);
-        filteredCard.appendChild(cardBannerHref);
+        hotel_card_wrapper.appendChild(card);
+        card.appendChild(cardBannerHref);
         cardBannerHref.appendChild(bannerImg);
-        filteredCard.appendChild(cardList);
-        cardList.appendChild(starsListItem);
+        card.appendChild(cardTitle);
+        card.appendChild(cardList);
         cardList.appendChild(addressListItem);
 
     });
