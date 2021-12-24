@@ -15,7 +15,7 @@
     <div class="page-container">
         <header>
             <div class="logo-wrapper">
-                <a href="./homepage.html" id="logo">Travel<span>M</span>ore</a>
+                <a id="logo" onclick="openHomePage()">Travel<span>M</span>ore</a>
             </div>
             <div id="header_btn">
                 <button class="header-btn common-btn" onclick="openLogInForm()">Log In</button>
@@ -28,7 +28,7 @@
         <nav class="navbar">
             <ul class="navbar-menu">
                 <li class="navbar-item">
-                    <a href="./homepage.html" class="navbar-link">Home</a>
+                    <a class="navbar-link" onclick="openHomePage()">Home</a>
                 </li>
                 <li class="navbar-item">
                     <a class="navbar-link" onclick="openSearchPage()">Hotels</a>
@@ -73,16 +73,16 @@
                             </select>
                             <button class="common-btn" type="button" onclick="searchHotel()">Search</button>
                         </div>
-                        
+
                     </div>
                     <h2 id="dynamicTitle">The Most Popular Hotels In Georgia</h2>
-                    <div id = "hotel_cards">
+                    <div id="hotel_cards">
                         <div id="hotel_card_wrapper" class="card-wrapper">
-                        
+
                         </div>
                     </div>
-                    
-                    
+
+
 
                 </section>
 
@@ -131,6 +131,8 @@
                 </section>
 
             </div>
+            <!-- //end container 1// -->
+
             <div id="regLoginForm_container">
                 <form id="register_form">
                     <div class="x-btn-wrapper">
@@ -163,6 +165,8 @@
                     <button class="home-form-item form-btn" type="button" onclick="login()">Submit</button>
                 </form>
             </div>
+            <!-- end container 2 -->
+
             <div id="userInfo_container">
                 <h3>My Account Information</h3>
                 <form id="user_info">
@@ -192,30 +196,24 @@
                             disabled>Save</button>
                     </div>
                 </form>
+                <h3 id="reservationHistory_title">My Reservation History</h3>
                 <div id="booking_history">
-                    <h3>My reservation History</h3>
+
                     <table id="reservation_table">
                         <tr>
                             <th>Hotel</th>
                             <th>Address</th>
                             <th>Room Type</th>
                             <th>Room number</th>
-                            <th>Price</th>
+                            <th>1 night price GEL</th>
                             <th>Check In</th>
                             <th>Check Out</th>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+
                     </table>
                 </div>
             </div>
+            <!-- end container 3 -->
             <div id="hotelInfo_container">
 
                 <div class="hotel-page-top">
@@ -349,7 +347,7 @@
                 </div>
 
             </div>
-
+            <!-- end containers 4 -->
 
 
         </main>

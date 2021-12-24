@@ -1,4 +1,22 @@
 var loggedInUser = {};
+// open homepage
+function openHomePage() {
+    document.getElementById("homepage_container").style.display = "block";
+    document.getElementById("homepage_news").style.display = "block";
+    document.getElementById("dynamicTitle").style.display = "block";
+    document.getElementsByClassName("regions")[0].style.display = "block";
+    document.getElementById("hotelInfo_container").style.display = "none";
+    document.getElementById("userInfo_container").style.display = "none";
+    document.getElementById("searchBar_container").style.display = "none";
+
+    document.getElementsByClassName("card")[2].style.display = "none";
+    document.getElementsByClassName("card")[4].style.display = "none";
+    document.getElementsByClassName("card")[6].style.display = "none";
+    document.getElementsByClassName("card")[8].style.display = "none";
+    document.getElementsByClassName("card")[12].style.display = "none";
+    document.getElementsByClassName("card")[13].style.display = "none";
+};
+
 /*Login & Registration Pages*/
 function openLogInForm() {
     disappearForm("login_form", "register_form");
@@ -11,6 +29,9 @@ function openRegistrationForm() {
 function disappearForm(elementToShow, elementToDisappear) {
 
     document.getElementById("homepage_container").style.display = "none";
+    document.getElementById("hotelInfo_container").style.display = "none";
+    document.getElementById("userInfo_container").style.display = "none";
+
     document.getElementById("footer").style.position = "absolute";
     if (document.getElementById(elementToDisappear).style.display !== "none") {
         document.getElementById(elementToDisappear).style.display = "none";
@@ -37,7 +58,6 @@ if (register_form != null) {
             return;
         }
 
-
         let usersArrayString = localStorage.getItem("users");
         let parsedArray = JSON.parse(usersArrayString);
 
@@ -49,6 +69,7 @@ if (register_form != null) {
 
         if (existingUser != null) {
             alert("USER ALREADY EXISTS")
+
             return;
         }
 
@@ -102,12 +123,14 @@ function login() {
     document.getElementsByClassName("header-btn")[0].style.display = "none";
     document.getElementsByClassName("header-btn")[1].style.display = "none";
     loggedInUser = { ...user };
+    console.log(loggedInUser)
     let username = document.getElementById("username");
     username.style.display = "inline-block";
     username.textContent = user.fname;
     let logout = document.getElementById("logout-btn");
     logout.style.display = "inline-block";
-    document.getElementById("homepage_container").style.opacity = "1";
+    document.getElementById("homepage_container").style.display = "block";
+    document.getElementById("footer").style.position = "static";
 
 };
 /*================= user login ===================*/
@@ -122,7 +145,10 @@ function logout() {
     username.textContent = "";
     let logout = document.getElementById("logout-btn");
     logout.style.display = "none";
+    loggedInUser = {};
+    console.log(loggedInUser)
     window.location.href = "./homepage.html";
+    console.log(loggedInUser)
 
 };
 
@@ -145,18 +171,29 @@ function showPassword() {
 
 function loadUserPage() {
     document.getElementById("homepage_container").style.display = "none";
+    document.getElementById("hotelInfo_container").style.display = "none";
     document.getElementById("userInfo_container").style.display = "flex";
     document.getElementById("userInfo_firstname").value = loggedInUser.fname;
     document.getElementById("userInfo_lastname").value = loggedInUser.lname;
     document.getElementById("userInfo_email").value = loggedInUser.email;
     document.getElementById("userInfo_password").value = loggedInUser.password;
     document.getElementById("footer").style.position = "static";
+    let rowArray = document.getElementsByClassName("reservationTable-row");
+    for (let i = 0; i < rowArray.length; i++) {
+        rowArray[i].remove();
+    }
+    let dataArray = document.getElementsByClassName("table-data");
+    for (let i = 0; i < dataArray.length; i++) {
+        dataArray[i].remove();
+    }
 
     let bookingHistory = localStorage.getItem("reservations");
     let bookingParsedArray = JSON.parse(bookingHistory);
     console.log(bookingParsedArray)
+    
     if (!bookingParsedArray) {
         bookingParsedArray = [];
+
     }
 
     let userReservations = bookingParsedArray.filter(i => i.userId === loggedInUser.id);
@@ -173,26 +210,40 @@ function loadUserPage() {
             let table_row = document.createElement("tr");
             table_row.className = "reservationTable-row";
             reservation_table.appendChild(table_row);
+
             let name_data = document.createElement("td");
             name_data.textContent = data.hotelName;
+            name_data.className = "table-data";
             table_row.appendChild(name_data);
+
             let address_data = document.createElement("td");
             address_data.textContent = data.hotelAddress;
+            address_data.className = "table-data";
             table_row.appendChild(address_data);
+
             let type_data = document.createElement("td");
             type_data.textContent = element.type;
+            type_data.className = "table-data";
             table_row.appendChild(type_data);
+
             let number_data = document.createElement("td");
             number_data.textContent = element.number;
+            number_data.className = "table-data";
             table_row.appendChild(number_data);
+
             let price_data = document.createElement("td");
             price_data.textContent = element.price;
+            price_data.className = "table-data";
             table_row.appendChild(price_data);
+
             let checkin_data = document.createElement("td");
             checkin_data.textContent = data.checkInDate;
+            checkin_data.className = "table-data";
             table_row.appendChild(checkin_data);
+
             let checkout_data = document.createElement("td");
             checkout_data.textContent = data.checkOutDate;
+            checkout_data.className = "table-data";
             table_row.appendChild(checkout_data);
         })
     })
@@ -382,8 +433,15 @@ document.getElementsByClassName("card")[13].style.display = "none"
 function openHotelPage(id) {
     let hotel = hotels.find(i => i.id === id);
     document.getElementById("homepage_container").style.display = "none";
-    document.getElementById("hotelInfo_container").style.display = "flex";;
+    document.getElementById("hotelInfo_container").style.display = "flex";
 
+
+    if (Object.keys(loggedInUser).length === 0 && loggedInUser.constructor === Object) {
+        document.getElementById("reserve_btn").disabled = true;
+    }
+    else {
+        document.getElementById("reserve_btn").disabled = false;
+    }
 
     let img_1 = document.getElementById("img_1");
     let img_2 = document.getElementById("img_2");
@@ -450,6 +508,7 @@ class SelectedRoomDetails {
 
 
 function reservation() {
+
     let price_1 = document.getElementsByClassName("price-1night")[0].textContent;
     let price_2 = document.getElementsByClassName("price-1night")[1].textContent;
     let roomType_data1 = document.getElementById("room_type1").textContent;
@@ -584,6 +643,9 @@ function initSlideShow(slideshow) {
 
 //Search / ფილტრი
 function openSearchPage() {
+    document.getElementById("homepage_container").style.display = "block";
+    document.getElementById("hotelInfo_container").style.display = "none";
+    document.getElementById("userInfo_container").style.display = "none";
     document.getElementById("homepage_news").style.display = "none";
     document.getElementById("dynamicTitle").style.display = "none";
     document.getElementsByClassName("regions")[0].style.display = "none";
@@ -662,7 +724,7 @@ function searchHotel() {
     let hotelCards = document.getElementById("hotel_cards");
     let cardWrapper = document.createElement("div");
     cardWrapper.id = "hotel_card_wrapper";
-    cardWrapper.className="card-wrapper";
+    cardWrapper.className = "card-wrapper";
     hotelCards.appendChild(cardWrapper);
     searchedHotels.forEach(hotel => {
         let hotel_card_wrapper = document.getElementById("hotel_card_wrapper");
