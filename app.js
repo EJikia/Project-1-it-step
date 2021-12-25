@@ -54,10 +54,11 @@ if (register_form != null) {
             }
         }
         if (userObj.fname == "" || userObj.lname == "" || userObj.email == "" || userObj.password == "") {
+            
             alert("Please fill all required fields!")
             return;
         }
-
+        
         let usersArrayString = localStorage.getItem("users");
         let parsedArray = JSON.parse(usersArrayString);
 
@@ -123,7 +124,7 @@ function login() {
     document.getElementsByClassName("header-btn")[0].style.display = "none";
     document.getElementsByClassName("header-btn")[1].style.display = "none";
     loggedInUser = { ...user };
-    console.log(loggedInUser)
+
     let username = document.getElementById("username");
     username.style.display = "inline-block";
     username.textContent = user.fname;
@@ -146,9 +147,9 @@ function logout() {
     let logout = document.getElementById("logout-btn");
     logout.style.display = "none";
     loggedInUser = {};
-    console.log(loggedInUser)
+
     window.location.href = "./homepage.html";
-    console.log(loggedInUser)
+
 
 };
 
@@ -178,30 +179,29 @@ function loadUserPage() {
     document.getElementById("userInfo_email").value = loggedInUser.email;
     document.getElementById("userInfo_password").value = loggedInUser.password;
     document.getElementById("footer").style.position = "static";
-    let rowArray = document.getElementsByClassName("reservationTable-row");
-    for (let i = 0; i < rowArray.length; i++) {
-        rowArray[i].remove();
-    }
-    let dataArray = document.getElementsByClassName("table-data");
-    for (let i = 0; i < dataArray.length; i++) {
-        dataArray[i].remove();
-    }
+
+    let reservationData = document.getElementById("reservation_data");
+
+    reservationData.remove();
 
     let bookingHistory = localStorage.getItem("reservations");
     let bookingParsedArray = JSON.parse(bookingHistory);
-    console.log(bookingParsedArray)
-    
+
+
     if (!bookingParsedArray) {
         bookingParsedArray = [];
 
     }
 
     let userReservations = bookingParsedArray.filter(i => i.userId === loggedInUser.id);
-    console.log(userReservations)
+
 
     // foreach ით დაუვლი userReservations და dom-ით შექმნი td-ებს
     let reservation_table = document.getElementById("reservation_table");
-    console.log(reservation_table)
+    let tBodyElement = document.createElement("tbody");
+    tBodyElement.id = "reservation_data";
+    reservation_table.appendChild(tBodyElement);
+
 
 
     userReservations.forEach(data => {
@@ -209,7 +209,7 @@ function loadUserPage() {
         data.selectedRooms.forEach(element => {
             let table_row = document.createElement("tr");
             table_row.className = "reservationTable-row";
-            reservation_table.appendChild(table_row);
+            tBodyElement.appendChild(table_row);
 
             let name_data = document.createElement("td");
             name_data.textContent = data.hotelName;
@@ -516,13 +516,14 @@ function reservation() {
     let table_address_data = document.getElementById("address_data").textContent;
     let hotel_page_title = document.getElementById("hotel_page_title").textContent;
 
-    let selected_room1 = document.getElementsByClassName("select_room")[0];//წამოვიღე სელქთი
-    let selected_room1_value = selected_room1.options[selected_room1.selectedIndex].value; //ავიღე დასელექტებულის მნშ
-    let selected_room2 = document.getElementsByClassName("select_room")[1];
+    let selected_room1 = document.getElementById("type_1");
+    let selected_room1_value = selected_room1.options[selected_room1.selectedIndex].value;
+    let selected_room2 = document.getElementById("type_2");
     let selected_room2_value = selected_room2.options[selected_room2.selectedIndex].value;
-    let room1_sum = price_1 * selected_room1_value;// დავთვალე თითოეული ტაიპის არჩეული ოთახების ჯამური ფასი
+    let room1_sum = price_1 * selected_room1_value;
     let room2_sum = price_2 * selected_room2_value;
     let checkInDate = document.getElementById("checkIn").value;
+
     let checkOutDate = document.getElementById("checkOut").value;
 
     let rooms = [];
@@ -537,18 +538,35 @@ function reservation() {
 
     let reservationInfo = new Reservation_info(loggedInUser.id, hotel_page_title, table_address_data, rooms, checkInDate, checkOutDate);
 
-    let bookingHistory = localStorage.getItem("reservations");
-    let bookingParsedArray = JSON.parse(bookingHistory);
-    if (!bookingParsedArray) {
-        bookingParsedArray = [];
+    if ((checkInDate == "" || checkOutDate == "") && (selected_room1_value == 0 && selected_room2_value == 0)) {
+        alert("please select room and date")
     }
-    bookingParsedArray.push(reservationInfo);
-    let bookingHistoryStringArray = JSON.stringify(bookingParsedArray);
-    localStorage.setItem("reservations", bookingHistoryStringArray);
 
-    alert("Hotel Booked Successfully!");
+    else if (selected_room1_value == 0 && selected_room2_value == 0) {
+        alert("please select rooms")
+    }
+    else if (checkInDate == "" || checkOutDate == "") {
+        alert("please select check in/out date")
+    }
+    else {
+        let bookingHistory = localStorage.getItem("reservations");
+        let bookingParsedArray = JSON.parse(bookingHistory);
+        if (!bookingParsedArray) {
+            bookingParsedArray = [];
+        }
+        bookingParsedArray.push(reservationInfo);
+        let bookingHistoryStringArray = JSON.stringify(bookingParsedArray);
+        localStorage.setItem("reservations", bookingHistoryStringArray);
 
+        alert("Hotel Booked Successfully!");
+        selected_room1.selectedIndex = "0";
+        selected_room2.selectedIndex = "0";
+        checkInDate = "";
+        checkOutDate = "";
+
+    }
 }
+
 //Search bar with filter
 
 
@@ -665,55 +683,54 @@ function searchHotel() {
         cardsTohide[i].style.display = "none";
     }
     let searchedHotels = [...hotels];
-    console.log(searchedHotels)
+
+
     let name = document.getElementById("searchBy_name").value;
-    console.log(name)
+
     let city = document.getElementById("searchBy_city").value;
-    console.log(city)
+
     let address = document.getElementById("searchBy_address").value;
     let roomsMinNum = parseInt(document.getElementById("searchBy_roomsMinNum").value);
-    console.log(roomsMinNum)
+
     let selected_stars = document.getElementById("selectBy_stars");
     let stars = parseInt(selected_stars.options[selected_stars.selectedIndex].value);
     let selected_facilityItem = document.getElementById("selectBy_facilityItems");
     let facilityItem = selected_facilityItem.options[selected_facilityItem.selectedIndex].value;
 
-    console.log(address)
 
     if (name !== "") {
-        console.log("shemovida name");
         searchedHotels = searchedHotels.filter(i => i.name.toLowerCase().includes(name.toLowerCase()));
-        console.log(searchedHotels);
+
     }
 
 
     if (city !== "") {
-        console.log("shemovida city");
+
         searchedHotels = searchedHotels.filter(i => i.city.toLowerCase().includes(city.toLowerCase()));
-        console.log(searchedHotels);
+
     }
-    // console.log(searchedHotels);
+
     if (address !== "") {
-        console.log("shemovida address")
+
         searchedHotels = searchedHotels.filter(i => i.address.toLowerCase().includes(address.toLowerCase()));
-        console.log(searchedHotels);
+
     }
 
 
     if (roomsMinNum != NaN && roomsMinNum > 0) {
-        console.log("shemovida rooms")
+
         searchedHotels = searchedHotels.filter(i => i.numberOfRooms >= roomsMinNum);
-        console.log(searchedHotels);
+
     }
     if (stars > 0) {
-        console.log("shemovida stars")
+
         searchedHotels = searchedHotels.filter(i => i.numberOfStars == stars);
-        console.log(searchedHotels);
+
     }
     if (facilityItem != "") {
-        console.log("shemovida facility")
+
         searchedHotels = searchedHotels.filter(i => i[facilityItem].toLowerCase() == "Yes".toLowerCase());
-        console.log(searchedHotels);
+
     }
 
     if (name === "" && city === "" && address === "" && (roomsMinNum == NaN || roomsMinNum <= 0) && stars === 0 && facilityItem === "") {

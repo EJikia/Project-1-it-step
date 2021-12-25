@@ -200,15 +200,21 @@
                 <div id="booking_history">
 
                     <table id="reservation_table">
-                        <tr>
-                            <th>Hotel</th>
-                            <th>Address</th>
-                            <th>Room Type</th>
-                            <th>Room number</th>
-                            <th>1 night price GEL</th>
-                            <th>Check In</th>
-                            <th>Check Out</th>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Hotel</th>
+                                <th>Address</th>
+                                <th>Room Type</th>
+                                <th>Room number</th>
+                                <th>1 night price GEL</th>
+                                <th>Check In</th>
+                                <th>Check Out</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservation_data">
+
+                        </tbody>
+                        
 
                     </table>
                 </div>
@@ -312,7 +318,7 @@
                             <td id="room_type1"></td>
                             <td class="price-1night"></td>
                             <td>
-                                <select class="select_room" name="room">
+                                <select id="type_1" class="select_room" name="room">
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -325,7 +331,7 @@
                             <td id="room_type2"></td>
                             <td class="price-1night"></td>
                             <td>
-                                <select class="select_room" name="room">
+                                <select id="type_2" class="select_room" name="room">
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
