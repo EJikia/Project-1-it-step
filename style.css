@@ -3,13 +3,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
 }
 
-
+html{
+    font-size: 14px;
+}
 a {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
 li {
@@ -334,7 +336,7 @@ th, td {
     }
 
     /* Hide table headers (but not display: none;, for accessibility) */
-    #reservation_table th,#reservation_table tbody {
+    #reservation_table th, #reservation_table tbody {
         display: none;
     }
 
@@ -411,7 +413,7 @@ footer div {
 
 footer a, .copyright {
     font-size: .7rem;
-    
+
 }
 
 
@@ -591,12 +593,14 @@ img {
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
 #reserve_btn:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
 }
+
 #calendar {
     margin-top: 1em;
 }
