@@ -170,14 +170,18 @@ nav {
 }
 
 
-article {
+.news {
     padding: .5em;
     width: 300px;
+    border-radius: 10px;
+    background-color: rgb(213, 222, 223);
+    margin-bottom: .5em;
+
 }
 
-article img {
+.news img {
     width: 100%;
-    height: 50vh;
+    height: 30vh;
 }
 
 /*================= Form ===================*/
