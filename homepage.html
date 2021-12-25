@@ -11,387 +11,394 @@
 </head>
 
 <body>
-    <div class="page-container">
-        <header>
-            <div class="logo-wrapper">
-                <a id="logo" onclick="openHomePage()">Travel<span>M</span>ore</a>
-            </div>
-            <div id="header_btn">
-                <button class="header-btn common-btn" onclick="openLogInForm()">Log In</button>
-                <button class="header-btn common-btn" onclick="openRegistrationForm()">Join Us</button>
-                <button id="username" class="common-btn" onclick="loadUserPage()"></button>
-                <button id="logout-btn" class="common-btn" onclick="logout()">Log Out</button>
-            </div>
-        </header>
+    <div id="container1">
+        <div id="container2">
+            <header>
+                <div class="logo-wrapper">
+                    <a id="logo" onclick="openHomePage()">Travel<span>M</span>ore</a>
+                </div>
+                <div id="header_btn">
+                    <button class="header-btn common-btn" onclick="openLogInForm()">Log In</button>
+                    <button class="header-btn common-btn" onclick="openRegistrationForm()">Join Us</button>
+                    <button id="username" class="common-btn" onclick="loadUserPage()"></button>
+                    <button id="logout-btn" class="common-btn" onclick="logout()">Log Out</button>
+                </div>
+            </header>
 
-        <nav class="navbar">
-            <ul class="navbar-menu">
-                <li class="navbar-item">
-                    <a class="navbar-link" onclick="openHomePage()">Home</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="navbar-link" onclick="openSearchPage()">Hotels</a>
-                </li>
-            </ul>
-        </nav>
+            <nav class="navbar">
+                <ul class="navbar-menu">
+                    <li class="navbar-item">
+                        <a class="navbar-link" onclick="openHomePage()">Home</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="navbar-link" onclick="openSearchPage()">Hotels</a>
+                    </li>
+                </ul>
+            </nav>
 
-        <main>
-            <div id="homepage_container">
-                <section class="regions">
-                    <h2>The Most Popular Regions In Georgia</h2>
-                    <div id="region_card_wrapper" class="card-wrapper">
-
-                    </div>
-                </section>
-                <section class="hotels">
-                    <div id="searchBar_container">
-                        <div id="searchBar_input_wrapper">
-                            <input type="search" id="searchBy_name" placeholder="search by name">
-                            <input type="search" id="searchBy_city" placeholder="search by city">
-                            <input type="search" id="searchBy_address" placeholder="search by address">
-                            <input type="search" id="searchBy_roomsMinNum" placeholder="min number of rooms">
-                        </div>
-                        <div id="searchSelect_wrapper">
-                            <label for="selectBy_stars">search by number of stars</label>
-                            <select id="selectBy_stars">
-                                <option value="0">-</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                            <label for="selectBy_facilityItems">search by facility items</label>
-                            <select id="selectBy_facilityItems">
-                                <option value="">-</option>
-                                <option value="spa">spa</option>
-                                <option value="parking">parking</option>
-                                <option value="swimmingPool">swimming pool</option>
-                                <option value="fitness">fitness</option>
-                                <option value="internet">internet</option>
-                            </select>
-                            <button class="common-btn" type="button" onclick="searchHotel()">Search</button>
-                        </div>
-
-                    </div>
-                    <h2 id="dynamicTitle">The Most Popular Hotels In Georgia</h2>
-                    <div id="hotel_cards">
-                        <div id="hotel_card_wrapper" class="card-wrapper">
+            <main>
+                <div id="homeAndSearch_container">
+                    <section id="regions">
+                        <h2>The Most Popular Regions In Georgia</h2>
+                        <div id="region_card_wrapper" class="card-wrapper">
 
                         </div>
+                    </section>
+                    <section class="hotels">
+                        <div id="searchBar_container">
+                            <div id="searchBar_input_wrapper">
+                                <input type="search" id="searchBy_name" placeholder="search by name">
+                                <input type="search" id="searchBy_city" placeholder="search by city">
+                                <input type="search" id="searchBy_address" placeholder="search by address">
+                                <input type="search" id="searchBy_roomsMinNum" placeholder="min number of rooms">
+                            </div>
+                            <div id="searchSelect_wrapper">
+                                <label for="selectBy_stars">search by number of stars</label>
+                                <select id="selectBy_stars">
+                                    <option value="0">-</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <label for="selectBy_facilityItems">search by facility items</label>
+                                <select id="selectBy_facilityItems">
+                                    <option value="">-</option>
+                                    <option value="spa">spa</option>
+                                    <option value="parking">parking</option>
+                                    <option value="swimmingPool">swimming pool</option>
+                                    <option value="fitness">fitness</option>
+                                    <option value="internet">internet</option>
+                                </select>
+                                <button class="common-btn" type="button" onclick="searchHotel()">Search</button>
+                            </div>
+
+                        </div>
+                        <h2 id="dynamicTitle">The Most Popular Hotels In Georgia</h2>
+                        <div id="hotel_cards">
+                            <div id="hotel_card_wrapper" class="card-wrapper">
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="homepage_news">
+                        <a href="#" id="news_title">View all news</a>
+                        <div id="article_wrapper">
+
+                            <article class="news">
+                                <img src="./img/news/1/1.jpg" alt="">
+                                <p>10 December, 2021</p>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+                                    aspernatur
+                                    sed
+                                    rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
+                                    expedita
+                                    veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
+                            </article>
+                            <article class="news">
+                                <img src="./img/news/2/1.jpg" alt="">
+                                <p>10 December, 2021</p>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+                                    aspernatur
+                                    sed
+                                    rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
+                                    expedita
+                                    veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
+                            </article>
+                            <article class="news">
+                                <img src="./img/news/3/1.jpg" alt="">
+                                <p>10 December, 2021</p>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+                                    aspernatur
+                                    sed
+                                    rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
+                                    expedita
+                                    veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
+                            </article>
+                            <article class="news">
+                                <img src="./img/news/4/1.jpg" alt="">
+                                <p>10 December, 2021</p>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+                                    aspernatur
+                                    sed
+                                    rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
+                                    expedita
+                                    veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
+                            </article>
+                        </div>
+                    </section>
+
+                </div>
+                <!-- end homeAndSearch_container -->
+
+                <div id="regLoginForm_container">
+                    <form id="register_form">
+                        <div class="x-btn-wrapper">
+                            <button type="button" class="x-btn" onclick="closeForm()">X</button>
+                        </div>
+                        <p id="validation_msg" style="color: red; padding-left: 1rem;"></p>
+                        <div class="form-title">
+                            <h3>Sign Up</h3>
+                        </div>
+                        <label class="home-form-item form-label" for="fname">First name:</label>
+                        <input class="home-form-item form-input" type="text" id="fname" name="fname">
+                        <label class="home-form-item  form-label" for="lname">Last name:</label>
+                        <input class="home-form-item form-input" type="text" id="lname" name="lname">
+                        <label class="home-form-item  form-label" for="email">Email:</label>
+                        <input class="home-form-item form-input" type="email" id="email" name="email">
+                        <label class="home-form-item  form-label" for="password">Password:</label>
+                        <input class="home-form-item form-input" type="password" id="password" name="password">
+                        <button class="home-form-item  form-btn" class="form-btn" type="submit">Submit</button>
+                    </form>
+                    <form id="login_form">
+                        <div class="x-btn-wrapper">
+                            <button type="button" class="x-btn" onclick="closeForm()">X</button>
+                        </div>
+                        <div class="form-title">
+                            <h3>Log In</h3>
+                        </div>
+                        <label class="home-form-item  form-label" for="email">Email:</label>
+                        <input class="home-form-item form-input" type="email" id="email" name="email">
+                        <label class="home-form-item  form-label" for="password">Password</label>
+                        <input class="home-form-item form-input" type="password" id="password" name="password">
+                        <button class="home-form-item form-btn" type="button" onclick="login()">Submit</button>
+                    </form>
+                </div>
+                <!-- end regLoginForm_container -->
+
+                <div id="userInfo_container">
+                    <h3>My Account Information</h3>
+                    <form id="user_info">
+                        <label class="userInfo-form-item userInfo-label" for="firstname">First Name</label>
+                        <input class="userInfo-form-item userInfo-input" id="userInfo_firstname" type="text"
+                            name="firstname" disabled>
+
+                        <label class="userInfo-form-item userInfo-label" for="lastname">Last Name</label>
+                        <input class="userInfo-form-item userInfo-input" id="userInfo_lastname" type="text"
+                            name="lastname" disabled>
+
+                        <label class="userInfo-form-item userInfo-label" for="email">Email</label>
+                        <input class="userInfo-form-item userInfo-input" id="userInfo_email" type="email" name="email"
+                            disabled>
+
+                        <label class="userInfo-form-item userInfo-label" for="password">Password</label>
+                        <input class="userInfo-form-item userInfo-input" id="userInfo_password" type="password"
+                            name="password" disabled>
+                        <input class="userInfo-form-item userInfo-input" type="checkbox" onclick="showPassword()">Show
+                        Password
+
+                        <div class="userInfo-update-btn">
+                            <button id="changeUserInfo" class="userInfo-form-item" type="button"
+                                onclick="changeInfo()">Change
+                                information</button>
+                            <button id="saveUpdatedUserInfo" class="userInfo-form-item" type="button"
+                                onclick="updateInfo()" disabled>Save</button>
+                        </div>
+                    </form>
+                    <h3 id="reservationHistory_title">My Reservation History</h3>
+                    <div id="booking_history">
+
+                        <table id="reservation_table">
+                            <thead>
+                                <tr>
+                                    <th>Hotel</th>
+                                    <th>Address</th>
+                                    <th>Room Type</th>
+                                    <th>Room number</th>
+                                    <th>1 night price GEL</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reservation_data">
+
+                            </tbody>
+
+
+                        </table>
                     </div>
+                </div>
+                <!-- end userInfo_container -->
+                <div id="hotelInfo_container">
 
+                    <div class="hotel-page-top">
+                        <div class="slideshow-container">
 
+                            <div class="slides fade">
+                                <div class="numbertext">1 / 6</div>
+                                <img id="img_1" src="./img/hotels-banner/ambassadori.jpg" style="width:100%">
+                            </div>
 
-                </section>
+                            <div class="slides fade">
+                                <div class="numbertext">2 / 6</div>
+                                <img id="img_2" src="./img/hotels/achara/Orbi city sea view/1.jpg" style="width:100%">
+                            </div>
 
+                            <div class="slides fade">
+                                <div class="numbertext">3 / 6</div>
+                                <img id="img_3" src="" style="width:100%">
+                            </div>
 
-                <section id="homepage_news">
-                    <a href="#" id="news_title">View all news</a>
-                    <div id="article_wrapper">
+                            <div class="slides fade">
+                                <div class="numbertext">4 / 6</div>
+                                <img id="img_4" src="./img/hotels/achara/Orbi city sea view/3.jpg" style="width:100%">
+                            </div>
 
-                        <article class="news">
-                            <img src="./img/news/1/1.jpg" alt="">
-                            <p>10 December, 2021</p>
-                            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur
-                                sed
-                                rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
-                                expedita
-                                veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
-                        </article>
-                        <article class="news">
-                            <img src="./img/news/2/1.jpg" alt="">
-                            <p>10 December, 2021</p>
-                            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur
-                                sed
-                                rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
-                                expedita
-                                veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
-                        </article>
-                        <article class="news">
-                            <img src="./img/news/3/1.jpg" alt="">
-                            <p>10 December, 2021</p>
-                            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur
-                                sed
-                                rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
-                                expedita
-                                veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
-                        </article>
-                        <article class="news">
-                            <img src="./img/news/4/1.jpg" alt="">
-                            <p>10 December, 2021</p>
-                            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur
-                                sed
-                                rerum dicta temporibus distinctio consectetur id impedit nihil laboriosam numquam
-                                expedita
-                                veniam, cumque quaerat eius corrupti. Sapiente, nulla totam?</a>
-                        </article>
+                            <div class="slides fade">
+                                <div class="numbertext">5 / 6</div>
+                                <img id="img_5" src="./img/hotels/achara/Orbi city sea view/4.jpg" style="width:100%">
+                            </div>
+
+                            <div class="slides fade">
+                                <div class="numbertext">6 / 6</div>
+                                <img id="img_6" src="./img/hotels/achara/Orbi city sea view/5.jpg" style="width:100%">
+                            </div>
+
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                        </div>
+                        <br>
+
+                        <div class="dot-wrapper">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                            <span class="dot" onclick="currentSlide(5)"></span>
+                            <span class="dot" onclick="currentSlide(6)"></span>
+                        </div>
+                        <div class="titleWithStars">
+                            <h2 id="hotel_page_title"></h2>
+                            <span class="rating">
+                                <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                                <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                                <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                                <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                                <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
+                            </span>
+                        </div>
+
                     </div>
-                </section>
-
-            </div>
-            <!-- //end container 1// -->
-
-            <div id="regLoginForm_container">
-                <form id="register_form">
-                    <div class="x-btn-wrapper">
-                        <button type="button" class="x-btn" onclick="closeForm()">X</button>
-                    </div>
-                    <p id="validation_msg" style="color: red; padding-left: 1rem;"></p>
-                    <div class="form-title">
-                        <h3>Sign Up</h3>
-                    </div>
-                    <label class="home-form-item form-label" for="fname">First name:</label>
-                    <input class="home-form-item form-input" type="text" id="fname" name="fname">
-                    <label class="home-form-item  form-label" for="lname">Last name:</label>
-                    <input class="home-form-item form-input" type="text" id="lname" name="lname">
-                    <label class="home-form-item  form-label" for="email">Email:</label>
-                    <input class="home-form-item form-input" type="email" id="email" name="email">
-                    <label class="home-form-item  form-label" for="password">Password:</label>
-                    <input class="home-form-item form-input" type="password" id="password" name="password">
-                    <button class="home-form-item  form-btn" class="form-btn" type="submit">Submit</button>
-                </form>
-                <form id="login_form">
-                    <div class="x-btn-wrapper">
-                        <button type="button" class="x-btn" onclick="closeForm()">X</button>
-                    </div>
-                    <div class="form-title">
-                        <h3>Log In</h3>
-                    </div>
-                    <label class="home-form-item  form-label" for="email">Email:</label>
-                    <input class="home-form-item form-input" type="email" id="email" name="email">
-                    <label class="home-form-item  form-label" for="password">Password</label>
-                    <input class="home-form-item form-input" type="password" id="password" name="password">
-                    <button class="home-form-item form-btn" type="button" onclick="login()">Submit</button>
-                </form>
-            </div>
-            <!-- end container 2 -->
-
-            <div id="userInfo_container">
-                <h3>My Account Information</h3>
-                <form id="user_info">
-                    <label class="userInfo-form-item userInfo-label" for="firstname">First Name</label>
-                    <input class="userInfo-form-item userInfo-input" id="userInfo_firstname" type="text"
-                        name="firstname" disabled>
-
-                    <label class="userInfo-form-item userInfo-label" for="lastname">Last Name</label>
-                    <input class="userInfo-form-item userInfo-input" id="userInfo_lastname" type="text" name="lastname"
-                        disabled>
-
-                    <label class="userInfo-form-item userInfo-label" for="email">Email</label>
-                    <input class="userInfo-form-item userInfo-input" id="userInfo_email" type="email" name="email"
-                        disabled>
-
-                    <label class="userInfo-form-item userInfo-label" for="password">Password</label>
-                    <input class="userInfo-form-item userInfo-input" id="userInfo_password" type="password"
-                        name="password" disabled>
-                    <input class="userInfo-form-item userInfo-input" type="checkbox" onclick="showPassword()">Show
-                    Password
-
-                    <div class="userInfo-update-btn">
-                        <button id="changeUserInfo" class="userInfo-form-item" type="button"
-                            onclick="changeInfo()">Change
-                            information</button>
-                        <button id="saveUpdatedUserInfo" class="userInfo-form-item" type="button" onclick="updateInfo()"
-                            disabled>Save</button>
-                    </div>
-                </form>
-                <h3 id="reservationHistory_title">My Reservation History</h3>
-                <div id="booking_history">
-
-                    <table id="reservation_table">
-                        <thead>
+                    <!-- end hotel-page-top (slider with hotel name and rating)-->
+                    <div id="hotel-info-table">
+                        <table class="info-table">
                             <tr>
-                                <th>Hotel</th>
-                                <th>Address</th>
-                                <th>Room Type</th>
-                                <th>Room number</th>
-                                <th>1 night price GEL</th>
-                                <th>Check In</th>
-                                <th>Check Out</th>
+                                <th>Address:</th>
+                                <td id="address_data"></td>
                             </tr>
-                        </thead>
-                        <tbody id="reservation_data">
-
-                        </tbody>
-                        
-
-                    </table>
-                </div>
-            </div>
-            <!-- end container 3 -->
-            <div id="hotelInfo_container">
-
-                <div class="hotel-page-top">
-                    <div class="slideshow-container">
-
-                        <div class="slides fade">
-                            <div class="numbertext">1 / 6</div>
-                            <img id="img_1" src="./img/hotels-banner/ambassadori.jpg" style="width:100%">
-                        </div>
-
-                        <div class="slides fade">
-                            <div class="numbertext">2 / 6</div>
-                            <img id="img_2" src="./img/hotels/achara/Orbi city sea view/1.jpg" style="width:100%">
-                        </div>
-
-                        <div class="slides fade">
-                            <div class="numbertext">3 / 6</div>
-                            <img id="img_3" src="" style="width:100%">
-                        </div>
-
-                        <div class="slides fade">
-                            <div class="numbertext">4 / 6</div>
-                            <img id="img_4" src="./img/hotels/achara/Orbi city sea view/3.jpg" style="width:100%">
-                        </div>
-
-                        <div class="slides fade">
-                            <div class="numbertext">5 / 6</div>
-                            <img id="img_5" src="./img/hotels/achara/Orbi city sea view/4.jpg" style="width:100%">
-                        </div>
-
-                        <div class="slides fade">
-                            <div class="numbertext">6 / 6</div>
-                            <img id="img_6" src="./img/hotels/achara/Orbi city sea view/5.jpg" style="width:100%">
-                        </div>
-
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            <tr>
+                                <th>Number of rooms:</th>
+                                <td id="numOfrooms_data"></td>
+                            </tr>
+                            <tr>
+                                <th>Max number of Guests:</th>
+                                <td id="maxGuests_data"></td>
+                            </tr>
+                            <tr>
+                                <th>Facility items:</th>
+                                <td id="facilityItem_data"></td>
+                            </tr>
+                            <tr>
+                                <th>Child policy:</th>
+                                <td id="childPolicy_data"></td>
+                            </tr>
+                        </table>
 
                     </div>
-                    <br>
+                    <div id="reservation_options">
+                        <table>
+                            <tr>
+                                <th>Room Type</th>
+                                <th>Price for 1 night (GEL)</th>
+                                <th>Select rooms</th>
 
-                    <div class="dot-wrapper">
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                        <span class="dot" onclick="currentSlide(4)"></span>
-                        <span class="dot" onclick="currentSlide(5)"></span>
-                        <span class="dot" onclick="currentSlide(6)"></span>
-                    </div>
-                    <div class="titleWithStars">
-                        <h2 id="hotel_page_title"></h2>
-                        <span class="rating">
-                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
-                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
-                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
-                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
-                            <img class="rating-stars" src="./img/hotel-page-icons/star-icon.png" alt="">
-                        </span>
+                            </tr>
+                            <tr>
+                                <td id="room_type1"></td>
+                                <td class="price-1night"></td>
+                                <td>
+                                    <select id="type_1" class="select_room" name="room">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td id="room_type2"></td>
+                                <td class="price-1night"></td>
+                                <td>
+                                    <select id="type_2" class="select_room" name="room">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                        <div id="calendar">
+                            <label for="checkIn">Check In:</label>
+                            <input type="date" id="checkIn" name="checkIn"></td>
+
+                            <label for="checkOut">Check Out:</label>
+                            <input type="date" id="checkOut" name="checkOut"></td>
+                        </div>
+                        <button type="button" onclick="reservation()" id="reserve_btn"
+                            class="common-btn">Reserve</button>
                     </div>
 
                 </div>
-                <div id="hotel-info-table">
-                    <table class="info-table">
-                        <tr>
-                            <th>Address:</th>
-                            <td id="address_data"></td>
-                        </tr>
-                        <tr>
-                            <th>Number of rooms:</th>
-                            <td id="numOfrooms_data"></td>
-                        </tr>
-                        <tr>
-                            <th>Max number of Guests:</th>
-                            <td id="maxGuests_data"></td>
-                        </tr>
-                        <tr>
-                            <th>Facility items:</th>
-                            <td id="facilityItem_data"></td>
-                        </tr>
-                        <tr>
-                            <th>Child policy:</th>
-                            <td id="childPolicy_data"></td>
-                        </tr>
-                    </table>
-
-                </div>
-                <div class="room-options">
-                    <table>
-                        <tr>
-                            <th>Room Type</th>
-                            <th>Price for 1 night (GEL)</th>
-                            <th>Select rooms</th>
-
-                        </tr>
-                        <tr>
-                            <td id="room_type1"></td>
-                            <td class="price-1night"></td>
-                            <td>
-                                <select id="type_1" class="select_room" name="room">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td id="room_type2"></td>
-                            <td class="price-1night"></td>
-                            <td>
-                                <select id="type_2" class="select_room" name="room">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </td>
-
-                        </tr>
-
-                    </table>
-                    <div id="calendar">
-                        <label for="checkIn">Check In:</label>
-                        <input type="date" id="checkIn" name="checkIn"></td>
-
-                        <label for="checkOut">Check Out:</label>
-                        <input type="date" id="checkOut" name="checkOut"></td>
-                    </div>
-                    <button type="button" onclick="reservation()" id="reserve_btn" class="common-btn">Reserve</button>
-                </div>
-
-            </div>
-            <!-- end containers 4 -->
+                <!-- end hotelInfo_container -->
 
 
-        </main>
-        <footer id="footer">
-            <div>
-                <ul>
-                    <h6>Company</h6>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">COVID-19 Advice</a></li>
-                </ul>
-
-            </div>
-            <div>
-                <ul>
-                    <h6>Contact</h6>
-                    <li><a href="#">Us</a></li>
-                    <li><a href="#">Hotel Owners</a></li>
-                    <li><a href="#">Help/FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-right">
-                <div>
-                    <h6>Follow Us:</h6>
-                    <a href="#"> <img src="./img/social-media-icons/fb-icon.png" alt="FB">
-                    </a>
-                    <a href="#"> <img src="./img/social-media-icons/snapchat-icon.png" alt="Snapchat">
-                    </a>
-                    <a href="#"> <img src="./img/social-media-icons/instagram-icon.png" alt="Snapchat">
-                    </a>
-                    <a href="#"> <img src="./img/social-media-icons/twitter-icon.png" alt="Snapchat">
-                    </a>
-                </div>
-                <div class="copyright">All Right Reserved <br>TravelMore, Inc. © 2021</div>
-            </div>
-        </footer>
+            </main>
+        </div>
+        <!-- end container2 -->
     </div>
+   <!-- end container1 -->
+    <footer id="footer">
+        <div>
+            <ul>
+                <h6>Company</h6>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">COVID-19 Advice</a></li>
+            </ul>
+
+        </div>
+        <div>
+            <ul>
+                <h6>Contact</h6>
+                <li><a href="#">Us</a></li>
+                <li><a href="#">Hotel Owners</a></li>
+                <li><a href="#">Help/FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <div>
+                <h6>Follow Us:</h6>
+                <a href="#"> <img src="./img/social-media-icons/fb-icon.png" alt="FB">
+                </a>
+                <a href="#"> <img src="./img/social-media-icons/snapchat-icon.png" alt="Snapchat">
+                </a>
+                <a href="#"> <img src="./img/social-media-icons/instagram-icon.png" alt="Snapchat">
+                </a>
+                <a href="#"> <img src="./img/social-media-icons/twitter-icon.png" alt="Snapchat">
+                </a>
+            </div>
+            <div class="copyright">All Right Reserved <br>TravelMore, Inc. © 2021</div>
+        </div>
+    </footer>
+
 
     <script src="./app.js"></script>
 </body>

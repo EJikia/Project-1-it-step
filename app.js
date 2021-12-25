@@ -1,15 +1,15 @@
 var loggedInUser = {};
 // open homepage
 function openHomePage() {
-    document.getElementById("homepage_container").style.display = "block";
+    document.getElementById("homeAndSearch_container").style.display = "block";
     document.getElementById("homepage_news").style.display = "block";
     document.getElementById("dynamicTitle").style.display = "block";
-    document.getElementsByClassName("regions")[0].style.display = "block";
+    document.getElementById("regions").style.display = "block";
     document.getElementById("hotelInfo_container").style.display = "none";
     document.getElementById("userInfo_container").style.display = "none";
     document.getElementById("searchBar_container").style.display = "none";
     document.getElementById("regLoginForm_container").style.display = "none";
-    document.getElementById("footer").style.position = "static";
+
     let searchedHotels = [...hotels];
     let allHotelCard = document.getElementById("hotel_card_wrapper");
     allHotelCard.remove();
@@ -64,14 +64,13 @@ function openRegistrationForm() {
 }
 function disappearForm(elementToShow, elementToDisappear) {
     document.getElementById("regLoginForm_container").style.display = "block";
-    document.getElementById("homepage_container").style.display = "none";
+    document.getElementById("homeAndSearch_container").style.display = "none";
     document.getElementById("hotelInfo_container").style.display = "none";
     document.getElementById("userInfo_container").style.display = "none";
     document.getElementsByClassName("form-input")[0].value = "";
     document.getElementsByClassName("form-input")[1].value = "";
     document.getElementsByClassName("form-input")[2].value = "";
     document.getElementsByClassName("form-input")[3].value = "";
-    document.getElementById("footer").style.position = "absolute";
     if (document.getElementById(elementToDisappear).style.display !== "none") {
         document.getElementById(elementToDisappear).style.display = "none";
     }
@@ -159,9 +158,8 @@ if (register_form != null) {
         openLogInForm();
 
     });
-}
+};
 
-/*================= user register  ===================*/
 
 /*================= user login ===================*/
 function login() {
@@ -199,11 +197,10 @@ function login() {
     username.textContent = user.fname;
     let logout = document.getElementById("logout-btn");
     logout.style.display = "inline-block";
-    document.getElementById("homepage_container").style.display = "block";
-    document.getElementById("footer").style.position = "static";
+    document.getElementById("homeAndSearch_container").style.display = "block";
     openHomePage();
 };
-/*================= user login ===================*/
+
 
 /*================= user log out ===================*/
 function logout() {
@@ -222,11 +219,6 @@ function logout() {
 
 };
 
-/*================= user log out ===================*/
-//close reg_login pages
-function closeForm() {
-    window.location.href = "./homepage.html";
-}
 
 /*================= user page ===================*/
 
@@ -240,7 +232,7 @@ function showPassword() {
 };
 
 function loadUserPage() {
-    document.getElementById("homepage_container").style.display = "none";
+    document.getElementById("homeAndSearch_container").style.display = "none";
     document.getElementById("hotelInfo_container").style.display = "none";
     document.getElementById("regLoginForm_container").style.display = "none";
     document.getElementById("userInfo_container").style.display = "flex";
@@ -248,7 +240,7 @@ function loadUserPage() {
     document.getElementById("userInfo_lastname").value = loggedInUser.lname;
     document.getElementById("userInfo_email").value = loggedInUser.email;
     document.getElementById("userInfo_password").value = loggedInUser.password;
-    document.getElementById("footer").style.position = "static";
+
 
     let reservationData = document.getElementById("reservation_data");
 
@@ -265,14 +257,10 @@ function loadUserPage() {
 
     let userReservations = bookingParsedArray.filter(i => i.userId === loggedInUser.id);
 
-
-    // foreach ით დაუვლი userReservations და dom-ით შექმნი td-ებს
     let reservation_table = document.getElementById("reservation_table");
     let tBodyElement = document.createElement("tbody");
     tBodyElement.id = "reservation_data";
     reservation_table.appendChild(tBodyElement);
-
-
 
     userReservations.forEach(data => {
 
@@ -342,7 +330,7 @@ function updateInfo() {
     document.getElementById("userInfo_password").disabled = true;
     document.getElementById("saveUpdatedUserInfo").disabled = true;
 };
-/*================= user page ===================*/
+
 
 /*================= Hotels ===================*/
 class Hotel {
@@ -492,18 +480,19 @@ hotels.forEach(hotel => {
     cardList.appendChild(addressListItem);
 
 });
-document.getElementsByClassName("card")[2].style.display = "none"
-document.getElementsByClassName("card")[4].style.display = "none"
-document.getElementsByClassName("card")[6].style.display = "none"
-document.getElementsByClassName("card")[8].style.display = "none"
-document.getElementsByClassName("card")[12].style.display = "none"
-document.getElementsByClassName("card")[13].style.display = "none"
+document.getElementsByClassName("card")[2].style.display = "none";
+document.getElementsByClassName("card")[4].style.display = "none";
+document.getElementsByClassName("card")[6].style.display = "none";
+document.getElementsByClassName("card")[8].style.display = "none";
+document.getElementsByClassName("card")[12].style.display = "none";
+document.getElementsByClassName("card")[13].style.display = "none";
+
 //get hotel by id and fill hotel Page info
 
 function openHotelPage(id) {
 
     let hotel = hotels.find(i => i.id === id);
-    document.getElementById("homepage_container").style.display = "none";
+    document.getElementById("homeAndSearch_container").style.display = "none";
     document.getElementById("hotelInfo_container").style.display = "flex";
     document.getElementById("type_1").selectedIndex = "0";
     document.getElementById("type_2").selectedIndex = "0";
@@ -561,7 +550,7 @@ function openHotelPage(id) {
 
 
 }
-//reservation
+//reservation//
 
 class Reservation_info {
     constructor(userId, hotelName, hotelAddress, selectedRooms, checkInDate, checkOutDate) {
@@ -614,7 +603,7 @@ function reservation() {
     if ((checkInDate == "" || checkOutDate == "") && (selected_room1_value == 0 && selected_room2_value == 0)) {
         alert("please select room and date")
     }
-
+    
     else if (selected_room1_value == 0 && selected_room2_value == 0) {
         alert("please select rooms")
     }
@@ -639,13 +628,8 @@ function reservation() {
     }
 }
 
-//Search bar with filter
 
-
-
-//hotels full info
-
-// slideshow
+// slider
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -672,7 +656,7 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
-/*================= Hotels ===================*/
+
 
 /*================= POPULAR REGIONS ===================*/
 class Region {
@@ -702,52 +686,24 @@ popularRegions.forEach(region => {
     regionCard.appendChild(regImage);
     regionCard.appendChild(regionTitle);
 })
-/*================= POPULAR REGIONS ===================*/
-/*================= News slideShow ===================*/
-var slideshows = document.querySelectorAll('[data-component="slideshow"]');
 
-// Apply to all slideshows that you define with the markup wrote
-slideshows.forEach(initSlideShow);
-
-function initSlideShow(slideshow) {
-
-    var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`); // Get an array of slides
-
-    var index = 0, time = 5000;
-    slides[index].classList.add('active');
-
-    setInterval(() => {
-        slides[index].classList.remove('active');
-
-        //Go over each slide incrementing the index
-        index++;
-
-        // If you go over all slides, restart the index to show the first slide and start again
-        if (index === slides.length) index = 0;
-
-        slides[index].classList.add('active');
-
-    }, time);
-}
-
-
-//Search / ფილტრი
+//Search / filter//
 function openSearchPage() {
-    document.getElementById("searchBy_name").value="";
-    document.getElementById("searchBy_city").value="";
-    document.getElementById("searchBy_address").value="";
-    document.getElementById("searchBy_roomsMinNum").value="";
-    
-    document.getElementById("selectBy_stars").selectedIndex="0";
-    document.getElementById("selectBy_facilityItems").selectedIndex="0";
-    document.getElementById("homepage_container").style.display = "block";
+    document.getElementById("searchBy_name").value = "";
+    document.getElementById("searchBy_city").value = "";
+    document.getElementById("searchBy_address").value = "";
+    document.getElementById("searchBy_roomsMinNum").value = "";
+
+    document.getElementById("selectBy_stars").selectedIndex = "0";
+    document.getElementById("selectBy_facilityItems").selectedIndex = "0";
+    document.getElementById("homeAndSearch_container").style.display = "block";
     document.getElementById("hotelInfo_container").style.display = "none";
     document.getElementById("userInfo_container").style.display = "none";
     document.getElementById("homepage_news").style.display = "none";
-    document.getElementsByClassName("regions")[0].style.display = "none";
+    document.getElementById("regions").style.display = "none";
     document.getElementById("dynamicTitle").style.display = "none";
     document.getElementById("regLoginForm_container").style.display = "none";
-    document.getElementById("footer").style.position = "static";
+
     let searchedHotels = [...hotels];
     let allHotelCard = document.getElementById("hotel_card_wrapper");
     allHotelCard.remove();
@@ -814,8 +770,8 @@ function searchHotel() {
     let facilityItem = selected_facilityItem.options[selected_facilityItem.selectedIndex].value;
     if (name == "" && city == "" && address == "" && (isNaN(roomsMinNum) || roomsMinNum <= 0) && stars == 0 && facilityItem == "") {
         searchedHotels = [...hotels];
-        document.getElementById("footer").style.position = "static";
-        
+
+
     }
     else {
         if (name !== "") {
@@ -852,10 +808,8 @@ function searchHotel() {
             searchedHotels = searchedHotels.filter(i => i[facilityItem].toLowerCase() == "Yes".toLowerCase());
 
         }
-        document.getElementById("footer").style.position = "absolute";
+
     }
-
-
 
     let allHotelCard = document.getElementById("hotel_card_wrapper");
     allHotelCard.remove();
@@ -890,4 +844,4 @@ function searchHotel() {
 
     });
 
-}
+};

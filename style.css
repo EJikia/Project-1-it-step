@@ -6,9 +6,14 @@
     font-family: sans-serif;
 }
 
-html{
+html {
     font-size: 14px;
 }
+
+html, body {
+    height: 100%;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -18,8 +23,13 @@ li {
     list-style: none;
 }
 
-.page-container {
-    min-height: 100vh;
+#container1 {
+    min-height: 100%;
+}
+
+#container2 {
+    overflow: auto;
+    padding-bottom: 100px;
 }
 
 body {
@@ -28,11 +38,13 @@ body {
 
 /*==================== Header =========================*/
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     z-index: 999;
+    min-height: 50px;
 
 }
 
@@ -86,6 +98,7 @@ nav {
     border-radius: 10px;
     padding: 1em;
     margin-bottom: 2em;
+    margin-top: 50px;
 }
 
 .navbar-menu {
@@ -109,15 +122,15 @@ nav {
 
 }
 
-/*================= Main ===================*/
+/*================= homeAndSearch_container ===================*/
 
-
-.regions h3 {
+#regions h3 {
     color: white;
     margin: 1em;
 }
 
-.hotels h2, .regions h2, #news_title {
+
+.hotels h2, #regions h2, #news_title {
     color: rgb(235, 51, 88);
     margin: 1em;
     font-size: larger;
@@ -187,7 +200,7 @@ nav {
     height: 30vh;
 }
 
-/*================= Form ===================*/
+/*================= Forms ===================*/
 
 
 #register_form, #login_form {
@@ -286,6 +299,7 @@ nav {
 
 }
 
+/*================= userInfo_container ===================*/
 #userInfo_container {
     display: none;
     flex-direction: column;
@@ -330,12 +344,12 @@ th, td {
 
 @media only screen and (max-width: 550px) {
 
-    /* Force table to not be like tables anymore */
+
     #reservation_table, #reservation_table td, #reservation_table tr {
         display: block;
     }
 
-    /* Hide table headers (but not display: none;, for accessibility) */
+
     #reservation_table th, #reservation_table tbody {
         display: none;
     }
@@ -345,7 +359,6 @@ th, td {
     }
 
     #reservation_table td {
-        /* Behave  like a "row" */
         border: none;
         border-bottom: 2px solid black;
         position: relative;
@@ -353,9 +366,7 @@ th, td {
     }
 
     #reservation_table td:before {
-        /* Now like a table header */
         position: absolute;
-        /* Top/left values mimic padding */
         top: 6px;
         left: 6px;
         width: 45%;
@@ -363,9 +374,7 @@ th, td {
         white-space: nowrap;
     }
 
-    /*
-	Label the data
-	*/
+    
     #reservation_table td:nth-of-type(1):before {
         content: "Hotel";
     }
@@ -395,42 +404,6 @@ th, td {
     }
 
 }
-
-/*================= Footer ===================*/
-
-footer {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgb(235, 51, 88);
-    bottom: 0;
-    width: 100%;
-    position: static;
-}
-
-footer div {
-    flex-basis: content;
-}
-
-footer a, .copyright {
-    font-size: .7rem;
-
-}
-
-
-.footer-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-}
-
-img {
-    height: 30px;
-    width: 30px
-}
-
-
-
 /*================= Hotel Info ===================*/
 
 
@@ -513,7 +486,6 @@ img {
     background-color: #717171;
 }
 
-/* Fading animation */
 .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
@@ -574,15 +546,14 @@ img {
     display: none;
 }
 
-/* room selections */
-.room-options {
+#reservation_options {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
 }
 
-.room-options th, .room-options td {
+#reservation_options th, #reservation_options td {
     margin: .5em;
     padding: .5em;
     border: 1px solid black;
@@ -637,3 +608,42 @@ button[disabled] {
     margin: 0.3em;
     border-radius: 10px;
 }
+/*================= Footer ===================*/
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(235, 51, 88);
+    /* bottom: 0;
+    width: 100%;
+    position: static; */
+    position: relative;
+    height: 100px;
+    margin-top: -100px;
+    clear: both;
+}
+
+footer div {
+    flex-basis: content;
+}
+
+footer a, .copyright {
+    font-size: .7rem;
+
+}
+
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+img {
+    height: 30px;
+    width: 30px
+}
+
+
+
