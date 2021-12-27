@@ -214,11 +214,13 @@ function logout() {
     logout.style.display = "none";
     loggedInUser = {};
 
-    window.location.href = "./homepage.html";
+    window.location.href = "./index.html";
 
 
 };
-
+function closeForm() {
+    window.location.href = "./index.html";
+}
 
 /*================= user page ===================*/
 

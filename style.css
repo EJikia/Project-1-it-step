@@ -345,12 +345,12 @@ th, td {
 @media only screen and (max-width: 550px) {
 
 
-    #reservation_table, #reservation_table td, #reservation_table tr {
+    #reservation_table, #reservation_table thead, #reservation_table tbody, #reservation_table td, #reservation_table tr {
         display: block;
     }
 
 
-    #reservation_table th, #reservation_table tbody {
+    #reservation_table th, #reservation_table thead {
         display: none;
     }
 
